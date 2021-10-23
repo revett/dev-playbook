@@ -12,10 +12,10 @@ configuration.
 ## Usage
 
 ```
-ANSIBLE_LOCALHOST_WARNING=false ansible-playbook playbook.yml --ask-become-pass
+ansible-playbook -i localhost, playbook.yml --ask-become-pass
 ```
 
 ## Thanks
 
-- Jeff Geerling -
-  [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
+- Jeff Geerling - [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
+- Marko Wallin - [walokra/osx-dev-playbook](https://github.com/walokra/osx-dev-playbook)

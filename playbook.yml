@@ -1,9 +1,11 @@
 ---
-- connection: local
-  hosts: localhost
+- hosts: localhost
+  connection: local
   vars:
     hostname_prefix: 0x726576-
   vars_prompt:
+    # TODO: this should only need to be set if the hostname does not have the
+    # correct prefix.
     - name: hostname_suffix
       prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
       private: no
@@ -14,9 +16,12 @@
       when:
         - not hostname_suffix | length == 3
   tasks:
+    - name: Output full hostname
+      debug:
+        msg: "{{ hostname_prefix }}{{ hostname_suffix}}"
     - name: Hello World
       shell: echo "hello world"
       register: hello_world
     - name: Output
       debug:
-        var: hello_world.stdout_lines
+        msg: "{{ hello_world.stdout_lines }}"
