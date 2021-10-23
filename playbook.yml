@@ -1,0 +1,10 @@
+---
+- connection: local
+  hosts: localhost
+  tasks:
+    - name: Hello World
+      shell: echo "hello world"
+      register: hello_world
+    - name: Output
+      debug:
+        var: hello_world.stdout_lines

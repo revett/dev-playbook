@@ -9,6 +9,12 @@ configuration.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/revett/dev-playbook/HEAD/install.sh)"
 ```
 
+## Usage
+
+```
+ansible-playbook playbook.yml --ask-become-pass
+```
+
 ## Thanks
 
 - Jeff Geerling -
