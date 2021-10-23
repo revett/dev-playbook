@@ -1,6 +1,18 @@
 ---
 - connection: local
   hosts: localhost
+  vars:
+    hostname_prefix: 0x726576-
+  vars_prompt:
+    - name: hostname_suffix
+      prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
+      private: no
+  pre_tasks:
+    - name: Fail if hostname_suffix is not 3 letters in length
+      fail:
+        msg: hostname_suffix must be 3 letters in length
+      when:
+        - not hostname_suffix | length == 3
   tasks:
     - name: Hello World
       shell: echo "hello world"

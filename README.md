@@ -12,7 +12,7 @@ configuration.
 ## Usage
 
 ```
-ansible-playbook playbook.yml --ask-become-pass
+ANSIBLE_LOCALHOST_WARNING=false ansible-playbook playbook.yml --ask-become-pass
 ```
 
 ## Thanks
