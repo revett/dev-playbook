@@ -9,6 +9,7 @@
 #
 # @author Charlie Revett
 
+# Install Homebrew
 COMMAND="brew"
 echo "> checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
@@ -19,6 +20,7 @@ else
   echo "> found, skipping"
 fi
 
+# Install Ansible
 COMMAND="ansible"
 echo "> checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
@@ -28,6 +30,7 @@ else
   echo "> found, skipping"
 fi
 
+# Install Git
 COMMAND="git"
 echo "> checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
@@ -37,8 +40,22 @@ else
   echo "> found, skipping"
 fi
 
-echo "> running: brew cleanup"
-brew cleanup
+# Create personal projects directory
+PARENT_PATH="$HOME/projects/github.com/revett"
+echo "> checking: $PARENT_PATH"
+if [ ! -d $PARENT_PATH ]; then
+  echo "> not found, creating directory"
+  mkdir -p $PARENT_PATH
+else
+  echo "> found, skipping"
+fi
 
-echo "> running: brew autoremove"
-brew autoremove
+# Clone this repo
+REPO_PATH="${PARENT_PATH}/dev-playbook"
+echo "> checking: $REPO_PATH"
+if [ ! -d $REPO_PATH ]; then
+  echo "> not found, cloning repo"
+  git -C $PARENT_PATH clone https://github.com/revett/dev-playbook.git
+else
+  echo "> found, skipping"
+fi
