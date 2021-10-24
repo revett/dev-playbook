@@ -37,7 +37,7 @@ echo "> checking: $ROLE"
 ansible-galaxy role list | grep "$ROLE" &> /dev/null
 if [ $? != 0 ]; then
   echo "> not found, installing"
-  ansible-galaxy role install $ROLE
+  ansible-galaxy role install --force $ROLE
 else
   echo "> found, skipping"
 fi
@@ -49,7 +49,7 @@ echo "> checking: $COLLECTION"
 ansible-galaxy collection list | grep "$COLLECTION" &> /dev/null
 if [ $? != 0 ]; then
   echo "> not found, installing"
-  ansible-galaxy collection install $COLLECTION
+  ansible-galaxy collection install --force $COLLECTION
 else
   echo "> found, skipping"
 fi
