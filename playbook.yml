@@ -23,12 +23,4 @@
       when:
         - not homebrew_installed.stat.exists
   tasks:
-    - name: Output full hostname
-      debug:
-        msg: "{{ hostname_prefix }}{{ hostname_suffix}}"
-    - name: Hello World
-      shell: echo "hello world"
-      register: hello_world
-    - name: Output
-      debug:
-        msg: "{{ hello_world.stdout_lines }}"
+    - import_tasks: tasks/hostname.yml
