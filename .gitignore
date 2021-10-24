@@ -1,1 +1,2 @@
+# Ignore logs from Ansible
 ansible.log
