@@ -30,6 +30,30 @@ else
   echo "> found, skipping"
 fi
 
+# Install elliotweiser.osx-command-line-tools
+# https://galaxy.ansible.com/elliotweiser/osx-command-line-tools
+ROLE="elliotweiser.osx-command-line-tools"
+echo "> checking: $ROLE"
+ansible-galaxy role list | grep "$ROLE" &> /dev/null
+if [ $? != 0 ]; then
+  echo "> not found, installing"
+  ansible-galaxy role install $ROLE
+else
+  echo "> found, skipping"
+fi
+
+# Install geerlingguy.mac
+# https://galaxy.ansible.com/geerlingguy/mac
+COLLECTION="geerlingguy.mac"
+echo "> checking: $COLLECTION"
+ansible-galaxy collection list | grep "$COLLECTION" &> /dev/null
+if [ $? != 0 ]; then
+  echo "> not found, installing"
+  ansible-galaxy collection install $COLLECTION
+else
+  echo "> found, skipping"
+fi
+
 # Install Git
 COMMAND="git"
 echo "> checking: $COMMAND"
