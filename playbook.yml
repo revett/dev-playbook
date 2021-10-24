@@ -4,8 +4,6 @@
   vars:
     hostname_prefix: 0x726576-
   vars_prompt:
-    # TODO: this should only need to be set if the hostname does not have the
-    # correct prefix.
     - name: hostname_suffix
       prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
       private: no
@@ -15,6 +13,15 @@
         msg: hostname_suffix must be 3 letters in length
       when:
         - not hostname_suffix | length == 3
+    - name: Check Homebrew is installed
+      stat:
+        path: /usr/local/bin/brew
+      register: homebrew_installed
+    - name: Error if Homebrew is not found
+      fail:
+        msg: Homebrew not found, run install.sh
+      when:
+        - not homebrew_installed.stat.exists
   tasks:
     - name: Output full hostname
       debug:
