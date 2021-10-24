@@ -5,11 +5,16 @@ configuration.
 
 ## Install
 
+Downloads and executes [`install.sh`](./install.sh) locally, which installs the
+required dependencies for the playbook:
+
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/revett/dev-playbook/HEAD/install.sh)"
 ```
 
 ## Usage
+
+Run the [Ansible](https://github.com/ansible/ansible) playbook:
 
 ```
 ansible-playbook -i localhost, playbook.yml --ask-become-pass
