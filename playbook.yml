@@ -23,4 +23,5 @@
       when:
         - not homebrew_installed.stat.exists
   tasks:
+    - import_tasks: tasks/ansible.yml
     - import_tasks: tasks/hostname.yml

@@ -14,7 +14,7 @@ required dependencies for the playbook:
 
 ## Usage
 
-Run the [Ansible](https://github.com/ansible/ansible) playbook:
+Runs the [Ansible](https://github.com/ansible/ansible) playbook:
 
 ```
 ansible-playbook -i localhost, playbook.yml --ask-become-pass
