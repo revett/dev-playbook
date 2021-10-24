@@ -59,3 +59,5 @@ if [ ! -d $REPO_PATH ]; then
 else
   echo "> found, skipping"
 fi
+
+echo "> complete."
