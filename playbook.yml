@@ -2,7 +2,47 @@
 - hosts: localhost
   connection: local
   vars:
+    homebrew_cask_apps:
+      - font-sauce-code-pro-nerd-font
+      - google-chrome
+      - iterm2
+      - keepingyouawake
+      - libreoffice
+      - postman
+      - rectangle
+      - sequel-ace
+      - slack
+      - spotify
+      - tresorit
+      - visual-studio-code
+    homebrew_installed_packages:
+      - ansible
+      - bash
+      - bash-completion
+      - coreutils
+      - docker
+      - exiftool
+      - git
+      - go
+      - golangci-lint
+      - goreleaser/tap/goreleaser
+      - jq
+      - s3cmd
+      - starship
+      - terraform
+      - tree
+      - wget
+      - yarn
+    homebrew_taps:
+      - goreleaser/tap
+      - homebrew/bundle
+      - homebrew/cask
+      - homebrew/cask-fonts
+      - homebrew/core
     hostname_prefix: 0x726576-
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+    - role: geerlingguy.mac.homebrew
   vars_prompt:
     - name: hostname_suffix
       prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
@@ -13,15 +53,7 @@
         msg: hostname_suffix must be 3 letters in length
       when:
         - not hostname_suffix | length == 3
-    - name: Check Homebrew is installed
-      stat:
-        path: /usr/local/bin/brew
-      register: homebrew_installed
-    - name: Error if Homebrew is not found
-      fail:
-        msg: Homebrew not found, run install.sh
-      when:
-        - not homebrew_installed.stat.exists
   tasks:
     - import_tasks: tasks/ansible.yml
     - import_tasks: tasks/hostname.yml
+    - import_tasks: tasks/homebrew.yml
