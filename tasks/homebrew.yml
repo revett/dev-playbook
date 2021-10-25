@@ -1,0 +1,7 @@
+---
+- name: Upgrade Homebrew packages
+  shell: brew upgrade
+  register: upgrade_homebrew
+- name: Debug output from upgarding Homebrew packages
+  debug:
+    var: upgrade_homebrew
