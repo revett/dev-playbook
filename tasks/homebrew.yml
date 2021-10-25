@@ -1,4 +1,6 @@
 ---
+# TODO: Would prefer for this to be handled via geerlingguy.mac.homebrew
+# however I was seeing inconsistent behaviour when paired with become.
 - name: Upgrade Homebrew packages
   shell: brew upgrade
   register: upgrade_homebrew
