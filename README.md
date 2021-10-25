@@ -32,5 +32,5 @@ make run
 
 - Elliot Weiser - [elliotweiser.osx-command-line-tools](https://github.com/elliotweiser/ansible-osx-command-line-tools)
 - Jeff Geerling - [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
-- Jeff Geerling - [geerlingguy.mac](https://github.com/geerlingguy/ansible-collection-mac)
+- Jeff Geerling - [geerlingguy.mac.homebrew](https://github.com/geerlingguy/ansible-collection-mac)
 - Marko Wallin - [walokra/osx-dev-playbook](https://github.com/walokra/osx-dev-playbook)
