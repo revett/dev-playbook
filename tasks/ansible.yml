@@ -1,13 +1,7 @@
 ---
-- name: Update elliotweiser.osx-command-line-tools
-  command: ansible-galaxy role install --force elliotweiser.osx-command-line-tools
-  register: update_elliotweiser
-- name: Debug output from updating elliotweiser.osx-command-line-tools
+- name: Update Ansible Galaxy dependencies
+  command: make install-galaxy-dependencies
+  register: update_galaxy_dependencies
+- name: Debug output from updating Ansible Galaxy dependencies
   debug:
-    var: update_elliotweiser
-- name: Update geerlingguy.mac
-  command: ansible-galaxy collection install --force --upgrade geerlingguy.mac
-  register: update_geerlingguy
-- name: Debug output from updating geerlingguy.mac
-  debug:
-    var: update_geerlingguy
+    var: update_galaxy_dependencies
