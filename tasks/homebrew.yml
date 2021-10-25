@@ -7,3 +7,15 @@
 - name: Debug output from upgarding Homebrew packages
   debug:
     var: upgrade_homebrew
+- name: Cleanup Homebrew
+  shell: brew cleanup
+  register: cleanup_homebrew
+- name: Debug output from Homebrew cleanup
+  debug:
+    var: cleanup_homebrew
+- name: Uninstall unneeded formulae from Homebrew
+  shell: brew autoremove
+  register: autoremove_homebrew
+- name: Debug output from Homebrew autoremove
+  debug:
+    var: autoremove_homebrew
