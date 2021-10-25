@@ -1,3 +1,5 @@
+DEFAULT: run
+
 install-galaxy-dependencies:
 	ansible-galaxy install --force --role-file requirements.yml
 
