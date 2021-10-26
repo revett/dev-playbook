@@ -1,20 +1,41 @@
 ---
+- name: Prompt for suffix to hostname
+  pause:
+    prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
+    echo: true
+  register: hostname_suffix_result
+
+- name: Set user input from pause task to fact
+  set_fact:
+    hostname_suffix: "{{ hostname_suffix_result.user_input }}"
+
 - name: Output full hostname
   debug:
     msg: "{{ hostname_prefix }}{{ hostname_suffix}}"
+
+- name: Fail if hostname_suffix is not 3 letters in length
+  fail:
+    msg: hostname_suffix must be 3 letters in length
+  when:
+    - not hostname_suffix | length == 3
+
 - name: Read ComputerName
   command: scutil --get ComputerName
   register: computername
+
 - name: Set ComputerName
   become: true
   command: sudo scutil --set ComputerName "{{ hostname_prefix }}{{ hostname_suffix}}"
   when: computername.stdout != hostname_prefix + hostname_suffix
+
 - name: Read LocalHostName
   command: scutil --get LocalHostName
   register: localhostname
+
 - name: Set LocalHostName
   become: true
   command: sudo scutil --set LocalHostName "{{ hostname_prefix }}{{ hostname_suffix}}"
   when: localhostname.stdout != hostname_prefix + hostname_suffix
+
 - name: Flush DNS cache
   command: dscacheutil -flushcache
