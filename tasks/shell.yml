@@ -1,0 +1,15 @@
+---
+- name: Read /etc/shells
+  command: cat /etc/shells
+  register: shells
+
+- name: Add Homebrew installed version of Bash to /etc/shells
+  become: true
+  command: sudo echo /usr/local/bin/bash >> /etc/shells
+  when: shells.stdout.find('/usr/local/bin/bash') == -1
+
+# TODO: This is currently being run on each execution of the playbook, however
+# it should be executed if the default shell isn't correctly configured.
+- name: Set default shell to Homebrew installed version of Bash
+  become: true
+  command: sudo chsh -s /usr/local/bin/bash
