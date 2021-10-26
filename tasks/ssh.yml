@@ -3,16 +3,16 @@
   file:
     path: ~/.ssh
     state: directory
-    mode: 755
+    mode: "755"
 
 - name: Create empty `~/.ssh/id_rsa` file
   file:
     path: ~/.ssh/id_rsa
     state: touch
-    mode: 600
+    mode: "600"
 
 - name: Create empty `~/.ssh/id_rsa.pub` file
   file:
     path: ~/.ssh/id_rsa.pub
     state: touch
-    mode: 600
+    mode: "600"
