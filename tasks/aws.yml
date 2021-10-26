@@ -1,5 +1,4 @@
 ---
-# TODO: use directory
 - name: Create `~/.aws` directory
   file:
     path: ~/.aws
