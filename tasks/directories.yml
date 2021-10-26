@@ -4,15 +4,16 @@
     path: ~/projects/github.com
     state: directory
     recurse: yes
+    mode: 755
 
 - name: "Create {{ github_username }} directory in projects"
   file:
     path: "~/projects/github.com/{{ github_username }}"
     state: directory
-    recurse: yes
+    mode: 755
 
 - name: "Create {{ work_company }} directory in projects"
   file:
     path: "~/projects/github.com/{{ work_company }}"
     state: directory
-    recurse: yes
+    mode: 755
