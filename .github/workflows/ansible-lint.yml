@@ -1,0 +1,13 @@
+name: Ansible
+on: [push, pull_request]
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: "playbook.yml"
