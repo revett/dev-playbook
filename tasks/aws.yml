@@ -1,0 +1,26 @@
+---
+# TODO: use directory
+- name: Create `~/.aws` directory
+  file:
+    path: ~/.aws
+    state: directory
+
+- name: Create empty `~/.aws/config` file
+  file:
+    path: ~/.aws/config
+    state: touch
+
+- name: "Create empty `~/.aws/{{ work_company }}` file"
+  file:
+    path: "~/.aws/{{ work_company }}"
+    state: touch
+
+- name: "Create empty `~/.aws/{{ github_username }}` file"
+  file:
+    path: "~/.aws/{{ github_username }}"
+    state: touch
+
+- name: "Create empty `~/.aws/{{ github_username }}.s3cmd` file"
+  file:
+    path: "~/.aws/{{ github_username }}.s3cmd"
+    state: touch
