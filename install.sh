@@ -9,79 +9,83 @@
 #
 # @author Charlie Revett
 
+print() {
+  echo -e "\e[1m> $1\e[0m"
+}
+
 # Install Homebrew
 COMMAND="brew"
-echo "> checking: $COMMAND"
+print "checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
-  echo "> not found, installing"
+  print "not found, installing"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Install Ansible
 COMMAND="ansible"
-echo "> checking: $COMMAND"
+print "checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
-  echo "> not found, installing"
+  print "not found, installing"
   brew install ansible
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Install elliotweiser.osx-command-line-tools
 # https://galaxy.ansible.com/elliotweiser/osx-command-line-tools
 ROLE="elliotweiser.osx-command-line-tools"
-echo "> checking: $ROLE"
+print "checking: $ROLE"
 ansible-galaxy role list | grep "$ROLE" &> /dev/null
 if [ $? != 0 ]; then
-  echo "> not found, installing"
+  print "not found, installing"
   ansible-galaxy role install --force $ROLE
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Install geerlingguy.mac
 # https://galaxy.ansible.com/geerlingguy/mac
 COLLECTION="geerlingguy.mac"
-echo "> checking: $COLLECTION"
+print "checking: $COLLECTION"
 ansible-galaxy collection list | grep "$COLLECTION" &> /dev/null
 if [ $? != 0 ]; then
-  echo "> not found, installing"
+  print "not found, installing"
   ansible-galaxy collection install --force $COLLECTION
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Install Git
 COMMAND="git"
-echo "> checking: $COMMAND"
+print "checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
-  echo "> not found, installing"
+  print "not found, installing"
   brew install git
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Create personal projects directory
 PARENT_PATH="$HOME/projects/github.com/revett"
-echo "> checking: $PARENT_PATH"
+print "checking: $PARENT_PATH"
 if [ ! -d $PARENT_PATH ]; then
-  echo "> not found, creating directory"
+  print "not found, creating directory"
   mkdir -p $PARENT_PATH
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
 # Clone this repo
 REPO_PATH="${PARENT_PATH}/dev-playbook"
-echo "> checking: $REPO_PATH"
+print "checking: $REPO_PATH"
 if [ ! -d $REPO_PATH ]; then
-  echo "> not found, cloning repo"
+  print "not found, cloning repo"
   git -C $PARENT_PATH clone https://github.com/revett/dev-playbook.git
 else
-  echo "> found, skipping"
+  print "found, skipping"
 fi
 
-echo "> complete."
+print "complete."
