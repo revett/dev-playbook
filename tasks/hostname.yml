@@ -11,7 +11,7 @@
 
 - name: Output full hostname
   debug:
-    msg: "{{ hostname_prefix }}{{ hostname_suffix}}"
+    msg: "{{ hostname_prefix }}{{ hostname_suffix }}"
 
 - name: Fail if hostname_suffix is not 3 letters in length
   fail:
@@ -25,7 +25,7 @@
 
 - name: Set ComputerName
   become: true
-  command: sudo scutil --set ComputerName "{{ hostname_prefix }}{{ hostname_suffix}}"
+  command: sudo scutil --set ComputerName "{{ hostname_prefix }}{{ hostname_suffix }}"
   when: computername.stdout != hostname_prefix + hostname_suffix
 
 - name: Read LocalHostName
@@ -34,7 +34,7 @@
 
 - name: Set LocalHostName
   become: true
-  command: sudo scutil --set LocalHostName "{{ hostname_prefix }}{{ hostname_suffix}}"
+  command: sudo scutil --set LocalHostName "{{ hostname_prefix }}{{ hostname_suffix }}"
   when: localhostname.stdout != hostname_prefix + hostname_suffix
 
 - name: Flush DNS cache
