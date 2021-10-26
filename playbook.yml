@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
+    github_username: revett
     homebrew_cask_apps:
       - font-sauce-code-pro-nerd-font
       - google-chrome
@@ -21,6 +22,7 @@
       - bash-completion
       - coreutils
       - docker
+      - encoredev/tap/encore
       - exiftool
       - git
       - go
@@ -34,26 +36,36 @@
       - wget
       - yarn
     homebrew_taps:
+      - encoredev/tap
       - goreleaser/tap
       - homebrew/bundle
       - homebrew/cask
       - homebrew/cask-fonts
       - homebrew/core
     hostname_prefix: 0x726576-
+    work_company: vidsy
+
   roles:
     - role: elliotweiser.osx-command-line-tools
+      tags: ["osx-command-line-tools"]
     - role: geerlingguy.mac.homebrew
-  vars_prompt:
-    - name: hostname_suffix
-      prompt: What is the 3-letter hostname suffix? E.g. {{ hostname_prefix }}ABC
-      private: no
-  pre_tasks:
-    - name: Fail if hostname_suffix is not 3 letters in length
-      fail:
-        msg: hostname_suffix must be 3 letters in length
-      when:
-        - not hostname_suffix | length == 3
+      tags: ["homebrew"]
+
   tasks:
-    - import_tasks: tasks/ansible.yml
     - import_tasks: tasks/hostname.yml
+      tags: ["hostname"]
+
     - import_tasks: tasks/homebrew.yml
+      tags: ["homebrew"]
+
+    - import_tasks: tasks/directories.yml
+      tags: ["directories"]
+
+    - import_tasks: tasks/shell.yml
+      tags: ["shell"]
+
+    - import_tasks: tasks/ssh.yml
+      tags: ["ssh"]
+
+    - import_tasks: tasks/aws.yml
+      tags: ["aws"]

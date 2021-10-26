@@ -12,12 +12,6 @@ required dependencies for the playbook:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/revett/dev-playbook/HEAD/install.sh)"
 ```
 
-Install the [Ansible Galaxy](https://galaxy.ansible.com/) dependencies:
-
-```
-make install-galaxy-dependencies
-```
-
 ## Usage
 
 Runs the [Ansible](https://github.com/ansible/ansible) playbook:
@@ -26,7 +20,24 @@ Runs the [Ansible](https://github.com/ansible/ansible) playbook:
 make run
 ```
 
-> **Note**: includes a step to update Ansible Galaxy dependencies.
+> **Note**: includes a step to install/update
+> [Ansible Galaxy](https://galaxy.ansible.com/) dependencies.
+
+### Running a Subset of Tasks
+
+Filter which tasks within the playbook are executed via tags:
+
+```
+make run TAGS="homebrew,hostname"
+```
+
+## Manual Steps
+
+Unfortunately not everything can be automated, so the following checklist
+should be followed after running the playbook:
+
+1. Initialise SSH key
+1. Initialise AWS credentials and profiles
 
 ## Thanks
 

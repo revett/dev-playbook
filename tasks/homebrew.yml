@@ -2,20 +2,25 @@
 # TODO: Would prefer for this to be handled via geerlingguy.mac.homebrew
 # however I was seeing inconsistent behaviour when paired with become.
 - name: Upgrade Homebrew packages
-  shell: brew upgrade
+  command: brew upgrade
   register: upgrade_homebrew
+
 - name: Debug output from upgarding Homebrew packages
   debug:
     var: upgrade_homebrew
+
 - name: Cleanup Homebrew
-  shell: brew cleanup
+  command: brew cleanup
   register: cleanup_homebrew
+
 - name: Debug output from Homebrew cleanup
   debug:
     var: cleanup_homebrew
+
 - name: Uninstall unneeded formulae from Homebrew
-  shell: brew autoremove
+  command: brew autoremove
   register: autoremove_homebrew
+
 - name: Debug output from Homebrew autoremove
   debug:
     var: autoremove_homebrew

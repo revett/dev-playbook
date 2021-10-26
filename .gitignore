@@ -1,2 +1,5 @@
 # Ignore logs from Ansible
 ansible.log
+
+# Local TODO list that I keep for the project
+TODO.md
