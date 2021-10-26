@@ -10,6 +10,4 @@ jobs:
       - name: Lint Playbook
         uses: ansible/ansible-lint-action@master
         with:
-          targets: |
-            *.yml
-            tasks/*.yml
+          targets: ""
