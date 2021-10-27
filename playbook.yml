@@ -24,6 +24,7 @@
       - docker
       - encoredev/tap/encore
       - exiftool
+      - fzf
       - git
       - go
       - golangci-lint
