@@ -36,8 +36,11 @@ make run TAGS="homebrew,hostname"
 Unfortunately not everything can be automated, so the following checklist
 should be followed after running the playbook:
 
+1. Configure iCloud settings
+1. Install [1Password](https://1password.com/) via the App Store
 1. Initialise SSH key
 1. Initialise AWS credentials and profiles
+1. Configure [iTerm2](https://iterm2.com/) to use `SauceCodePro Nerd Font Mono`
 
 ## Thanks
 
