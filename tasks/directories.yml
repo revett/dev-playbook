@@ -1,18 +1,34 @@
 ---
-- name: Create projects directory
+- name: Assert that home directory is `~/{{ username }}`
+  assert:
+    that:
+      - "lookup('env', 'HOME') == '/Users/{{ username }}'"
+
+- name: Create `~/.config` directory
+  file:
+    path: ~/.config
+    state: directory
+    mode: "755"
+
+- name: Create `~/projects` directory
   file:
     path: ~/projects/github.com
     state: directory
-    recurse: yes
     mode: "755"
 
-- name: "Create {{ github_username }} directory in projects"
+- name: Create `~/projects/github.com` directory
+  file:
+    path: ~/projects/github.com
+    state: directory
+    mode: "755"
+
+- name: "Create `~/projects/github.com/{{ github_username }}` directory"
   file:
     path: "~/projects/github.com/{{ github_username }}"
     state: directory
     mode: "755"
 
-- name: "Create {{ work_company }} directory in projects"
+- name: "Create `~/projects/github.com/{{ work_company }}` directory"
   file:
     path: "~/projects/github.com/{{ work_company }}"
     state: directory

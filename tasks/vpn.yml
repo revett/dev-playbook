@@ -1,0 +1,11 @@
+---
+- name: Download root certificate for VPN
+  get_url:
+    url: https://downloads.nordcdn.com/certificates/root.der
+    dest: ~/.nordvpn.root.der
+    checksum: sha256:8b5a495db498a6c2c8ca7af6ae4a5cdf65e689d06cbeccb02453c91c3191e2ff
+  register: download_vpn_certificate
+
+- name: Debug output from downloading root certificate
+  debug:
+    var: download_vpn_certificate

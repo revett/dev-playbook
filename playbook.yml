@@ -2,7 +2,10 @@
 - hosts: localhost
   connection: local
   vars:
+    username: revett
     github_username: revett
+    hostname_prefix: 0x726576-
+    work_company: vidsy
     homebrew_cask_apps:
       - font-sauce-code-pro-nerd-font
       - google-chrome
@@ -43,8 +46,6 @@
       - homebrew/cask
       - homebrew/cask-fonts
       - homebrew/core
-    hostname_prefix: 0x726576-
-    work_company: vidsy
 
   roles:
     - role: elliotweiser.osx-command-line-tools
@@ -70,3 +71,9 @@
 
     - import_tasks: tasks/aws.yml
       tags: ["aws"]
+
+    - import_tasks: tasks/vpn.yml
+      tags: ["vpn"]
+
+    - import_tasks: tasks/vscode.yml
+      tags: ["vscode"]
