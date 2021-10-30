@@ -1,0 +1,8 @@
+---
+- name: Sync installed VSCode extensions to `~/dotfiles`
+  command: code --list-extensions --show-versions > ~/dotfiles/vscode/extensions
+  register: sync_vscode_extensions
+
+- name: Debug output from syncing VSCode extensions
+  debug:
+    var: sync_vscode_extensions
