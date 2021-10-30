@@ -1,0 +1,10 @@
+---
+- name: Download root certificate for VPN
+  command: curl -o ~/.nordvpn.root.der https://downloads.nordcdn.com/certificates/root.der
+  args:
+    creates: ~/.nordvpn.root.der
+  register: download_vpn_certificate
+
+- name: Debug output from downloading root certificate
+  debug:
+    var: download_vpn_certificate
