@@ -1,0 +1,23 @@
+---
+- name: Clone revett/dotfiles Github repository
+  git:
+    repo: https://github.com/revett/dotfiles.git
+    dest: "~/projects/github.com/{{ github_username }}/dotfiles"
+    update: no
+    version: main
+
+- name: Create dotfiles symlink in home directory
+  file:
+    src: "~/projects/github.com/{{ github_username }}/dotfiles"
+    dest: ~/dotfiles
+    state: link
+
+- name: Run dotfiles bash scripts
+  command:
+    cmd: make run
+    chdir: "~/projects/github.com/{{ github_username }}/dotfiles"
+  register: run_dotfiles_scripts
+
+- name: Debug output from running dotfiles bash scripts
+  debug:
+    var: run_dotfiles_scripts

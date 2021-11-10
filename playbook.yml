@@ -67,6 +67,9 @@
     - import_tasks: tasks/directories.yml
       tags: ["directories"]
 
+    - import_tasks: tasks/dotfiles.yml
+      tags: ["dotfiles"]
+
     - import_tasks: tasks/shell.yml
       tags: ["shell"]
 
