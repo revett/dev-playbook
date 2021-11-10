@@ -4,6 +4,12 @@
     that:
       - "lookup('env', 'HOME') == '/Users/{{ username }}'"
 
+- name: Create `~/Tresorit` directory
+  file:
+    path: ~/Tresorit
+    state: directory
+    mode: "755"
+
 - name: Create `~/.config` directory
   file:
     path: ~/.config
