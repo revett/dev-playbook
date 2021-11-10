@@ -1,21 +1,15 @@
 ---
-- name: Check if dotfiles has been cloned
-  stat:
-    path: "~/projects/github.com/{{ github_username }}/dotfiles"
-  register: stat_dotfiles_dir
-
 - name: Clone revett/dotfiles Github repository
-  command: git -C ~/projects/github.com/{{ github_username }} clone https://github.com/revett/dotfiles.git
-  when: not stat_dotfiles_dir.stat.exists
-
-- name: Check if dotfiles symlink exists in home directory
-  stat:
-    path: "~/dotfiles"
-  register: stat_dotfiles_symlink
+  git:
+    repo: https://github.com/revett/dotfiles.git
+    dest: "~/projects/github.com/{{ github_username }}/dotfiles"
+    update: no
 
 - name: Create dotfiles symlink in home directory
-  command: ln -sf ~/projects/github.com/revett/dotfiles ~/dotfiles
-  when: stat_dotfiles_symlink.stat.islnk is not defined
+  file:
+    src: "~/projects/github.com/{{ github_username }}/dotfiles"
+    dest: ~/dotfiles
+    state: link
 
 - name: Run dotfiles bash scripts
   shell:
