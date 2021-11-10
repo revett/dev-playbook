@@ -16,3 +16,13 @@
 - name: Create dotfiles symlink in home directory
   command: ln -sf ~/projects/github.com/revett/dotfiles ~/dotfiles
   when: stat_dotfiles_symlink.stat.islnk is not defined
+
+- name: Run dotfiles bash scripts
+  shell:
+    cmd: make run
+    chdir: "~/projects/github.com/{{ github_username }}/dotfiles"
+  register: run_dotfiles_scripts
+
+- name: Debug output from running dotfiles bash scripts
+  debug:
+    var: run_dotfiles_scripts
