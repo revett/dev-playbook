@@ -35,7 +35,9 @@
       - go
       - golangci-lint
       - goreleaser/tap/goreleaser
+      - graphviz
       - jq
+      - pandoc
       - s3cmd
       - starship
       - terraform
