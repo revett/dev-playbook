@@ -39,3 +39,9 @@
     path: "~/projects/github.com/{{ work_company }}"
     state: directory
     mode: "755"
+
+- name: "Create `~/go/bin` directory"
+  file:
+    path: "~/go/bin"
+    state: directory
+    mode: "755"
