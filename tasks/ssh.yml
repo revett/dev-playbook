@@ -1,24 +1,24 @@
 ---
 - name: Create `~/.ssh` directory
-  file:
+  ansible.builtin.file:
     path: ~/.ssh
     state: directory
     mode: "755"
 
 - name: Create empty `~/.ssh/config` file
-  file:
+  ansible.builtin.file:
     path: ~/.ssh/config
     state: touch
     mode: "600"
 
 - name: Create empty `~/.ssh/id_rsa` file
-  file:
+  ansible.builtin.file:
     path: ~/.ssh/id_rsa
     state: touch
     mode: "600"
 
 - name: Create empty `~/.ssh/id_rsa.pub` file
-  file:
+  ansible.builtin.file:
     path: ~/.ssh/id_rsa.pub
     state: touch
     mode: "600"

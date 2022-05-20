@@ -1,14 +1,14 @@
 ---
 - name: Get list of currently installed VS Code extensions
-  command: code --list-extensions --show-versions
+  ansible.builtin.command: code --list-extensions --show-versions
   register: vscode_extensions_list
 
 - name: Debug output from getting list of VS Code extensions
-  debug:
+  ansible.builtin.debug:
     var: vscode_extensions_list
 
 - name: Write list to local file in `~/dotfiles`
-  copy:
+  ansible.builtin.copy:
     content: "{{ vscode_extensions_list.stdout }}"
     dest: "~/dotfiles/vscode/extensions.txt"
   delegate_to: localhost

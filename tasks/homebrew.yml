@@ -2,25 +2,25 @@
 # TODO: Would prefer for this to be handled via geerlingguy.mac.homebrew
 # however I was seeing inconsistent behaviour when paired with become.
 - name: Upgrade Homebrew packages
-  command: brew upgrade
+  ansible.builtin.command: brew upgrade
   register: upgrade_homebrew
 
 - name: Debug output from upgarding Homebrew packages
-  debug:
+  ansible.builtin.debug:
     var: upgrade_homebrew
 
 - name: Cleanup Homebrew
-  command: brew cleanup
+  ansible.builtin.command: brew cleanup
   register: cleanup_homebrew
 
 - name: Debug output from Homebrew cleanup
-  debug:
+  ansible.builtin.debug:
     var: cleanup_homebrew
 
 - name: Uninstall unneeded formulae from Homebrew
-  command: brew autoremove
+  ansible.builtin.command: brew autoremove
   register: autoremove_homebrew
 
 - name: Debug output from Homebrew autoremove
-  debug:
+  ansible.builtin.debug:
     var: autoremove_homebrew
