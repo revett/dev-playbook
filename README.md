@@ -52,6 +52,14 @@ should be followed after running the playbook:
 1. Show all filename extensions in Finder
 1. Install [VPN (IKEv2/IPSec)](https://support.nordvpn.com/Connectivity/macOS/1133051642/How-to-connect-to-NordVPN-with-IKEv2-IPSec-on-macOS.htm)
 1. Set `CTRL` to `CAPS_LOCK`
+1. Disable `Look up & data detectors` for trackpad
+1. Enable `Tap to click` for trackpad
+1. Configure `Light` click for trackpad
+1. Disable `Scroll direction: Natural` for trackpad
+1. Disable `Show recent application in Dock`
+1. Enable `Minimise windows into application icon` in Dock
+1. Change display scaling to `More space`
+1. Manually set shell to `/bin/bash`
 
 ### iCloud Settings
 
