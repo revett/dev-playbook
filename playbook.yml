@@ -7,6 +7,7 @@
     hostname_prefix: 0x726576-
     work_company: vidsy
     homebrew_cask_apps:
+      - 1password
       - font-sauce-code-pro-nerd-font
       - google-chrome
       - iterm2
@@ -15,7 +16,6 @@
       - rectangle
       - sequel-ace
       - slack
-      - softmaker-freeoffice
       - spotify
       - tresorit
       - visual-studio-code
@@ -27,7 +27,6 @@
       - bash-completion
       - coreutils
       - docker
-      - encoredev/tap/encore
       - exiftool
       - ffmpeg
       - fzf
@@ -35,18 +34,14 @@
       - go
       - golangci-lint
       - goreleaser/tap/goreleaser
-      - graphviz
       - jq
-      - pandoc
       - s3cmd
       - starship
       - terraform
       - tree
       - wget
       - yarn
-      - youtube-dl
     homebrew_taps:
-      - encoredev/tap
       - goreleaser/tap
       - homebrew/bundle
       - homebrew/cask
