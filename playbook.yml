@@ -25,8 +25,6 @@
       - zoom
     homebrew_installed_packages:
       - ansible
-      - bash
-      - bash-completion
       - coreutils
       - docker
       - exiftool
