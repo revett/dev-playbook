@@ -1,11 +1,11 @@
 ---
 - name: Assert that home directory is `~/{{ username }}`
-  assert:
+  ansible.builtin.assert:
     that:
       - "lookup('env', 'HOME') == '/Users/{{ username }}'"
 
 - name: Create `~/Tresorit` directory
-  file:
+  ansible.builtin.file:
     path: ~/Tresorit
     state: directory
     mode: "755"

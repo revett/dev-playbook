@@ -3,7 +3,7 @@
   ansible.builtin.git:
     repo: https://github.com/revett/dotfiles.git
     dest: "~/projects/github.com/{{ github_username }}/dotfiles"
-    update: no
+    update: false
     version: main
 
 - name: Create dotfiles symlink in home directory
