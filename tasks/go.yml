@@ -1,0 +1,8 @@
+---
+- name: Install go-delve/delve debugger
+  ansible.builtin.command: go install github.com/go-delve/delve/cmd/dlv@latest
+  register: install_delve_debugger
+
+- name: Debug output from installing go-delve/delve debugger
+  ansible.builtin.debug:
+    var: install_delve_debugger

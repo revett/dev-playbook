@@ -79,3 +79,6 @@
 
     - import_tasks: tasks/vscode.yml
       tags: ["vscode"]
+
+    - import_tasks: tasks/go.yml
+      tags: ["go"]
