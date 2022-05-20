@@ -11,20 +11,20 @@
     state: touch
     mode: "600"
 
-- name: "Create empty `~/.aws/{{ work_company }}` file"
+- name: "Create empty `~/.aws/credentials` file"
   file:
-    path: "~/.aws/{{ work_company }}"
+    path: "~/.aws/credentials"
     state: touch
     mode: "600"
 
-- name: "Create empty `~/.aws/{{ github_username }}` file"
+- name: "Create empty `~/.aws/personal` file"
   file:
-    path: "~/.aws/{{ github_username }}"
+    path: "~/.aws/personal"
     state: touch
     mode: "600"
 
-- name: "Create empty `~/.aws/{{ github_username }}.s3cmd` file"
+- name: "Create empty `~/.aws/personal.s3cmd` file"
   file:
-    path: "~/.aws/{{ github_username }}.s3cmd"
+    path: "~/.aws/personal.s3cmd"
     state: touch
     mode: "600"
