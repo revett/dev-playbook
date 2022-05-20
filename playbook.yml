@@ -33,7 +33,7 @@
       - ffmpeg
       - fzf
       - git
-      - go
+      - go@1.17
       - golangci-lint
       - goreleaser/tap/goreleaser
       - jq
