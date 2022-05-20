@@ -10,7 +10,7 @@
 # @author Charlie Revett
 
 print() {
-  echo -e "\e[1m> $1\e[0m"
+  echo -e "> $1"
 }
 
 # Install Homebrew
@@ -19,10 +19,13 @@ print "checking: $COMMAND"
 if ! command -v $COMMAND &> /dev/null; then
   print "not found, installing"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew update
 else
   print "found, skipping"
 fi
+
+# Add Homebrew to path and update
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew update
 
 # Install Ansible
 COMMAND="ansible"
