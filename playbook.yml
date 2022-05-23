@@ -8,6 +8,7 @@
     work_company: vidsy
     homebrew_cask_apps:
       - 1password
+      - docker
       - firefox-developer-edition
       - font-sauce-code-pro-nerd-font
       - google-chrome
@@ -26,7 +27,6 @@
     homebrew_installed_packages:
       - ansible
       - coreutils
-      - docker
       - exiftool
       - ffmpeg
       - fzf
