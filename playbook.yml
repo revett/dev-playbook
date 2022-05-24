@@ -32,7 +32,6 @@
       - fzf
       - git
       - go@1.17
-      - golangci-lint
       - goreleaser/tap/goreleaser
       - jq
       - s3cmd
