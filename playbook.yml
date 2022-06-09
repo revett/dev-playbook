@@ -8,6 +8,7 @@
     work_company: vidsy
     homebrew_cask_apps:
       - 1password
+      - aws-vpn-client
       - docker
       - firefox-developer-edition
       - font-sauce-code-pro-nerd-font
