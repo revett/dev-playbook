@@ -7,6 +7,10 @@
     hostname_prefix: 0x726576-
     work_company: vidsy
     homebrew_cask_apps:
+      - 1password
+      - aws-vpn-client
+      - docker
+      - firefox-developer-edition
       - font-sauce-code-pro-nerd-font
       - google-chrome
       - iterm2
@@ -15,42 +19,36 @@
       - rectangle
       - sequel-ace
       - slack
-      - softmaker-freeoffice
       - spotify
+      - steam
+      - todoist
       - tresorit
       - visual-studio-code
       - vlc
       - zoom
     homebrew_installed_packages:
       - ansible
-      - bash
-      - bash-completion
       - coreutils
-      - docker
-      - encoredev/tap/encore
       - exiftool
       - ffmpeg
       - fzf
       - git
-      - go
-      - golangci-lint
+      - go@1.17
       - goreleaser/tap/goreleaser
-      - graphviz
       - jq
-      - pandoc
+      - protobuf
       - s3cmd
       - starship
       - terraform
       - tree
       - wget
       - yarn
-      - youtube-dl
     homebrew_taps:
-      - encoredev/tap
       - goreleaser/tap
       - homebrew/bundle
       - homebrew/cask
       - homebrew/cask-fonts
+      - homebrew/cask-versions
       - homebrew/core
 
   roles:
@@ -72,9 +70,6 @@
     - import_tasks: tasks/dotfiles.yml
       tags: ["dotfiles"]
 
-    - import_tasks: tasks/shell.yml
-      tags: ["shell"]
-
     - import_tasks: tasks/ssh.yml
       tags: ["ssh"]
 
@@ -86,3 +81,6 @@
 
     - import_tasks: tasks/vscode.yml
       tags: ["vscode"]
+
+    - import_tasks: tasks/go.yml
+      tags: ["go"]

@@ -1,41 +1,47 @@
 ---
 - name: Assert that home directory is `~/{{ username }}`
-  assert:
+  ansible.builtin.assert:
     that:
       - "lookup('env', 'HOME') == '/Users/{{ username }}'"
 
 - name: Create `~/Tresorit` directory
-  file:
+  ansible.builtin.file:
     path: ~/Tresorit
     state: directory
     mode: "755"
 
 - name: Create `~/.config` directory
-  file:
+  ansible.builtin.file:
     path: ~/.config
     state: directory
     mode: "755"
 
 - name: Create `~/projects` directory
-  file:
+  ansible.builtin.file:
     path: ~/projects/github.com
     state: directory
     mode: "755"
 
 - name: Create `~/projects/github.com` directory
-  file:
+  ansible.builtin.file:
     path: ~/projects/github.com
     state: directory
     mode: "755"
 
 - name: "Create `~/projects/github.com/{{ github_username }}` directory"
-  file:
+  ansible.builtin.file:
     path: "~/projects/github.com/{{ github_username }}"
     state: directory
     mode: "755"
 
 - name: "Create `~/projects/github.com/{{ work_company }}` directory"
-  file:
+  ansible.builtin.file:
     path: "~/projects/github.com/{{ work_company }}"
+    state: directory
+    mode: "755"
+
+- name: "Create `~/go/bin` directory"
+  ansible.builtin.file:
+    path: "~/go/bin"
     state: directory
     mode: "755"

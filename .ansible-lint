@@ -1,2 +1,3 @@
 warn_list:
-  - '301' # Commands should not change things if nothing needs doing
+  - experimental # all rules tagged as experimental
+  - risky-file-permissions # File permissions unset or incorrect

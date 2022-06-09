@@ -1,8 +1,14 @@
 ---
-- name: Sync installed VSCode extensions to `~/dotfiles`
-  command: code --list-extensions --show-versions > ~/dotfiles/vscode/extensions
-  register: sync_vscode_extensions
+- name: Get list of currently installed VS Code extensions
+  ansible.builtin.command: code --list-extensions --show-versions
+  register: vscode_extensions_list
 
-- name: Debug output from syncing VSCode extensions
-  debug:
-    var: sync_vscode_extensions
+- name: Debug output from getting list of VS Code extensions
+  ansible.builtin.debug:
+    var: vscode_extensions_list
+
+- name: Write list to local file in `~/dotfiles`
+  ansible.builtin.copy:
+    content: "{{ vscode_extensions_list.stdout }}"
+    dest: "~/dotfiles/vscode/extensions.txt"
+  delegate_to: localhost

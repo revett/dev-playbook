@@ -31,25 +31,6 @@ Filter which tasks within the playbook are executed via tags:
 make run TAGS="homebrew,hostname"
 ```
 
-## Manual Steps
-
-Unfortunately not everything can be automated, so the following checklist
-should be followed after running the playbook:
-
-1. Configure iCloud settings
-1. Install [1Password](https://1password.com/) via the App Store
-1. Install [Logitech Options](https://www.google.com/search?q=download+logitech+options+macos)
-1. Initialise SSH key
-1. Initialise AWS credentials and profiles
-1. Configure [iTerm2](https://iterm2.com/) to use `SauceCodePro Nerd Font Mono`
-1. Enable battery percentage in menu bar
-1. Disable Spotlight icon in menu bar
-1. Disable tags in Finder sidebar
-1. Enable `revett` in Finder sidebar
-1. Disable `Airdrop`, `Documents` and `Recents` in Finder sidebar
-1. Install [VPN (IKEv2/IPSec)](https://support.nordvpn.com/Connectivity/macOS/1133051642/How-to-connect-to-NordVPN-with-IKEv2-IPSec-on-macOS.htm)
-1. Set `CTRL` to `CAPS_LOCK`
-
 ## Thanks
 
 - Elliot Weiser - [elliotweiser.osx-command-line-tools](https://github.com/elliotweiser/ansible-osx-command-line-tools)
